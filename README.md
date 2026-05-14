@@ -36,29 +36,29 @@ OneRep is a high-performance, minimalist strength tracking application designed 
 
 2. Install dependencies:
    ```bash
-   bun install
+   npm install
    ```
 
 3. Start the development server:
    ```bash
-   bun run dev
+   npm run dev
    ```
 
 ## 📱 Mobile Build (Android)
 
 1. Build the production web assets:
    ```bash
-   bun run build
+   npm run build
    ```
 
 2. Sync with Capacitor:
    ```bash
-   bun x cap sync
+   npx cap sync
    ```
 
 3. Open in Android Studio:
    ```bash
-   bun x cap open android
+   npx cap open android
    ```
 
 ## 📄 License
