@@ -1,8 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useSettings, saveSettings } from "@/lib/store";
-import { FORMULAS } from "@/lib/oneRm";
-import type { FormulaId } from "@/lib/types";
-import { Label } from "@/components/ui/label";
+import { createFileRoute } from '@tanstack/react-router'
+import { FormulaChart } from "@/components/FormulaChart";
 
 export const Route = createFileRoute("/settings")({
   head: () => ({
@@ -18,14 +15,18 @@ function SettingsPage() {
   const settings = useSettings();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pb-10">
       <div>
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">Settings</p>
         <h1 className="mt-1 font-display text-3xl font-semibold tracking-tight">Preferences</h1>
       </div>
 
-      <section className="space-y-3">
-        <Label className="text-sm font-semibold">1RM formula</Label>
+      <section className="space-y-4">
+        <div>
+          <Label className="text-sm font-semibold">1RM formula</Label>
+          <p className="text-xs text-muted-foreground mt-1">Select the mathematical model used to estimate your strength capacity.</p>
+        </div>
+        
         <div className="grid gap-2 sm:grid-cols-2">
           {FORMULAS.map((f) => {
             const active = settings.formula === f.id;
@@ -43,6 +44,19 @@ function SettingsPage() {
               </button>
             );
           })}
+        </div>
+
+        <div className="rounded-2xl border border-border bg-gradient-surface p-6 shadow-card mt-4">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-sm font-semibold">Formula Curve</h3>
+            <span className="text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary">
+              {settings.formula} model
+            </span>
+          </div>
+          <FormulaChart formula={settings.formula} />
+          <p className="text-[10px] text-muted-foreground mt-4 text-center italic">
+            Shows what percentage of your 1RM you can likely lift for a given number of repetitions.
+          </p>
         </div>
       </section>
 
