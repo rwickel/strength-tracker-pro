@@ -73,7 +73,10 @@ OneRep is a high-performance, minimalist strength tracking application designed 
 
 ### Finding your APK
 After building the project in Android Studio (Build > Build APK), you can find the final application file at:
-`android/app/build/outputs/apk/debug/app-debug.apk`
+`android/app/build/outputs/apk/debug/app.apk`
+
+> [!TIP]
+> **Direct Download:** You can also find the latest debug APK directly in the repository here: [onerep-debug.apk](./releases/onerep-debug.apk)
 
 ## License
 MIT
