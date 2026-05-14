@@ -33,9 +33,9 @@ export function FormulaChart({ formula }: { formula: FormulaId }) {
   }
 
   return (
-    <div className="h-[220px] w-full mt-4">
+    <div className="h-[240px] w-full mt-4">
       <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+        <AreaChart data={data} margin={{ top: 10, right: 20, left: 0, bottom: 20 }}>
           <defs>
             <linearGradient id="colorPct" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#f97316" stopOpacity={0.4}/>
@@ -48,14 +48,33 @@ export function FormulaChart({ formula }: { formula: FormulaId }) {
             axisLine={false} 
             tickLine={false} 
             tick={{ fontSize: 11, fill: "#f97316", fontWeight: 500 }}
-            label={{ value: "REPS", position: "insideBottom", offset: -5, fontSize: 10, fill: "#f97316", fontWeight: 700, letterSpacing: "0.1em" }}
+            label={{ 
+              value: "REPETITIONS", 
+              position: "insideBottom", 
+              offset: -15, 
+              fontSize: 9, 
+              fill: "#f97316", 
+              fontWeight: 700, 
+              letterSpacing: "0.1em",
+              opacity: 0.8
+            }}
           />
           <YAxis 
             domain={[50, 100]} 
             axisLine={false} 
             tickLine={false} 
             tick={{ fontSize: 11, fill: "#f97316", fontWeight: 500 }}
-            label={{ value: "% MAX", angle: -90, position: "insideLeft", fontSize: 10, fill: "#f97316", fontWeight: 700, letterSpacing: "0.1em", offset: 10 }}
+            label={{ 
+              value: "% OF MAX", 
+              angle: -90, 
+              position: "insideLeft", 
+              fontSize: 9, 
+              fill: "#f97316", 
+              fontWeight: 700, 
+              letterSpacing: "0.1em", 
+              offset: 15,
+              opacity: 0.8
+            }}
           />
           <Tooltip 
             contentStyle={{ 
@@ -64,7 +83,7 @@ export function FormulaChart({ formula }: { formula: FormulaId }) {
               borderRadius: "12px",
               fontSize: "13px",
               color: "#fff",
-              boxShadow: "0 10px 15px -3px rgba(249, 115, 22, 0.2)"
+              boxShadow: "0 10px 15px -3px rgba(249, 115, 22, 0.3)"
             }}
             itemStyle={{ color: "#f97316" }}
             labelStyle={{ color: "#fff", fontWeight: "bold" }}
@@ -78,7 +97,7 @@ export function FormulaChart({ formula }: { formula: FormulaId }) {
             fillOpacity={1} 
             fill="url(#colorPct)" 
             strokeWidth={3}
-            animationDuration={1000}
+            animationDuration={800}
           />
         </AreaChart>
       </ResponsiveContainer>
