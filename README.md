@@ -2,7 +2,7 @@
 
 OneRep is a high-performance, minimalist strength tracking application designed for serious lifters. It focuses on estimated 1RM (One Rep Max) progression and provides real-time percentage-based training zones.
 
-![OneRep App Preview](/public/logo.png)
+![OneRep App Preview](./guide/final_app_result.png)
 
 ## 🚀 Features
 
