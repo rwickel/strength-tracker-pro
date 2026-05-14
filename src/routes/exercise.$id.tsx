@@ -192,7 +192,11 @@ function ExercisePage() {
           <h2 className="font-display text-sm font-semibold uppercase tracking-wider text-muted-foreground">
             Percentage zones
           </h2>
-          <PercentageTable oneRm={oneRm} unit={settings.unit} />
+          <PercentageTable 
+            oneRm={oneRm} 
+            unit={settings.unit} 
+            bodyweight={exercise.kind === "bodyweight" ? exercise.bodyweight : 0} 
+          />
           <p className="text-xs text-muted-foreground">
             Loads recalculate automatically as you log new sets. Reps shown are typical training ranges.
           </p>
