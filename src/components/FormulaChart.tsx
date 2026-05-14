@@ -33,49 +33,52 @@ export function FormulaChart({ formula }: { formula: FormulaId }) {
   }
 
   return (
-    <div className="h-[200px] w-full mt-4">
+    <div className="h-[220px] w-full mt-4">
       <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={data}>
+        <AreaChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
           <defs>
             <linearGradient id="colorPct" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3}/>
-              <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
+              <stop offset="5%" stopColor="#f97316" stopOpacity={0.4}/>
+              <stop offset="95%" stopColor="#f97316" stopOpacity={0}/>
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(249, 115, 22, 0.1)" />
           <XAxis 
             dataKey="reps" 
             axisLine={false} 
             tickLine={false} 
-            tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }}
-            label={{ value: "Reps", position: "insideBottom", offset: -5, fontSize: 10, fill: "hsl(var(--muted-foreground))" }}
+            tick={{ fontSize: 11, fill: "#f97316", fontWeight: 500 }}
+            label={{ value: "REPS", position: "insideBottom", offset: -5, fontSize: 10, fill: "#f97316", fontWeight: 700, letterSpacing: "0.1em" }}
           />
           <YAxis 
             domain={[50, 100]} 
             axisLine={false} 
             tickLine={false} 
-            tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }}
-            label={{ value: "% of Max", angle: -90, position: "insideLeft", fontSize: 10, fill: "hsl(var(--muted-foreground))" }}
+            tick={{ fontSize: 11, fill: "#f97316", fontWeight: 500 }}
+            label={{ value: "% MAX", angle: -90, position: "insideLeft", fontSize: 10, fill: "#f97316", fontWeight: 700, letterSpacing: "0.1em", offset: 10 }}
           />
           <Tooltip 
             contentStyle={{ 
-              backgroundColor: "hsl(var(--card))", 
-              borderColor: "hsl(var(--border))",
-              borderRadius: "8px",
-              fontSize: "12px"
+              backgroundColor: "#1a1a1a", 
+              borderColor: "#f97316",
+              borderRadius: "12px",
+              fontSize: "13px",
+              color: "#fff",
+              boxShadow: "0 10px 15px -3px rgba(249, 115, 22, 0.2)"
             }}
-            itemStyle={{ color: "hsl(var(--primary))" }}
-            labelStyle={{ color: "hsl(var(--foreground))", fontWeight: "bold" }}
+            itemStyle={{ color: "#f97316" }}
+            labelStyle={{ color: "#fff", fontWeight: "bold" }}
             formatter={(value: number) => [`${value}%`, "Load"]}
             labelFormatter={(label) => `${label} Reps`}
           />
           <Area 
             type="monotone" 
             dataKey="pct" 
-            stroke="hsl(var(--primary))" 
+            stroke="#f97316" 
             fillOpacity={1} 
             fill="url(#colorPct)" 
-            strokeWidth={2}
+            strokeWidth={3}
+            animationDuration={1000}
           />
         </AreaChart>
       </ResponsiveContainer>
