@@ -61,5 +61,9 @@ OneRep is a high-performance, minimalist strength tracking application designed 
    npx cap open android
    ```
 
+### 📦 Finding your APK
+After building the project in Android Studio (Build > Build APK), you can find the final application file at:
+`android/app/build/outputs/apk/debug/app-debug.apk`
+
 ## 📄 License
 MIT
