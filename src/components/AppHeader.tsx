@@ -7,9 +7,7 @@ export function AppHeader() {
     <header className="sticky top-0 z-30 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-ember shadow-glow">
-            <Dumbbell className="h-4 w-4 text-primary-foreground" />
-          </span>
+          <img src="/logo.png" alt="OneRep Logo" className="h-8 w-8 rounded-lg shadow-glow" />
           <span className="font-display text-lg font-semibold tracking-tight">
             One<span className="text-gradient-ember">Rep</span>
           </span>

@@ -97,6 +97,14 @@ export function addSet(set: SetLog) {
   list.push(set);
   write(KEYS.sets, list);
 }
+export function updateSet(set: SetLog) {
+  const list = read<SetLog[]>(KEYS.sets, []);
+  const i = list.findIndex((s) => s.id === set.id);
+  if (i >= 0) {
+    list[i] = set;
+    write(KEYS.sets, list);
+  }
+}
 export function deleteSet(id: string) {
   write(KEYS.sets, read<SetLog[]>(KEYS.sets, []).filter((s) => s.id !== id));
 }

@@ -63,7 +63,7 @@ function SettingsPage() {
 
       <section className="rounded-xl border border-border bg-card/50 p-4 text-sm text-muted-foreground">
         <p className="font-medium text-foreground">Storage</p>
-        <p className="mt-1">All data is saved locally in your browser. Cloud sync can be added later via Lovable Cloud.</p>
+        <p className="mt-1">All data is saved locally in your browser.</p>
       </section>
     </div>
   );

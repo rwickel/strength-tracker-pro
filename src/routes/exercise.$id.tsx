@@ -6,6 +6,7 @@ import { PercentageTable } from "@/components/PercentageTable";
 import { ProgressionChart } from "@/components/ProgressionChart";
 import { QuickLogger } from "@/components/QuickLogger";
 import { ExerciseFormDialog } from "@/components/ExerciseFormDialog";
+import { SetFormDialog } from "@/components/SetFormDialog";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Pencil, Trash2 } from "lucide-react";
 import { format } from "date-fns";
@@ -154,9 +155,9 @@ function ExercisePage() {
                     <li key={s.id} className="flex items-center justify-between gap-3 px-4 py-3">
                       <div className="min-w-0">
                         <div className="font-mono text-sm tabular">
-                          <span className="font-semibold">{s.weight}</span>
+                          <span className="font-semibold">{s.weight}{settings.unit}</span>
                           {exercise.kind === "bodyweight" && s.bodyweight ? (
-                            <span className="text-muted-foreground"> + {s.bodyweight} BW</span>
+                            <span className="text-muted-foreground"> + {s.bodyweight}{settings.unit} BW</span>
                           ) : null}
                           <span className="text-muted-foreground"> × {s.reps}</span>
                         </div>
@@ -167,15 +168,16 @@ function ExercisePage() {
                           )}
                         </div>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <div className="text-right">
+                      <div className="flex items-center gap-1.5">
+                        <div className="mr-2 text-right">
                           <div className="text-[10px] uppercase tracking-wider text-muted-foreground">e1RM</div>
                           <div className="font-mono text-sm font-semibold tabular text-primary">
                             {formatWeight(e1, settings.unit)}
                           </div>
                         </div>
+                        <SetFormDialog set={s} exercise={exercise} />
                         <Button size="icon" variant="ghost" onClick={() => deleteSet(s.id)}>
-                          <Trash2 className="h-4 w-4 text-muted-foreground" />
+                          <Trash2 className="h-3.5 w-3.5 text-muted-foreground" />
                         </Button>
                       </div>
                     </li>

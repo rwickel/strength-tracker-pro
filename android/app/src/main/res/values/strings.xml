@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Strength Tracker Pro</string>
+    <string name="title_activity_main">Strength Tracker Pro</string>
+    <string name="package_name">com.strengthtrackerpro.app</string>
+    <string name="custom_url_scheme">com.strengthtrackerpro.app</string>
+</resources>
