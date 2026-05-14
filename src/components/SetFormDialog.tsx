@@ -64,6 +64,7 @@ export function SetFormDialog({
                 id="edit-weight"
                 type="number"
                 inputMode="decimal"
+                className="h-11 text-base"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
               />
@@ -74,6 +75,7 @@ export function SetFormDialog({
                 id="edit-reps"
                 type="number"
                 inputMode="numeric"
+                className="h-11 text-base"
                 value={reps}
                 onChange={(e) => setReps(e.target.value)}
               />
@@ -87,6 +89,7 @@ export function SetFormDialog({
                 id="edit-bw"
                 type="number"
                 inputMode="decimal"
+                className="h-11 text-base"
                 value={bw}
                 onChange={(e) => setBw(e.target.value)}
               />
@@ -98,6 +101,7 @@ export function SetFormDialog({
             <Input
               id="edit-date"
               type="date"
+              className="h-11 text-base appearance-none min-h-[2.75rem]"
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
