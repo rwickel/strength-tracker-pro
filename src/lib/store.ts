@@ -109,6 +109,26 @@ export function deleteSet(id: string) {
   write(KEYS.sets, read<SetLog[]>(KEYS.sets, []).filter((s) => s.id !== id));
 }
 
+export function exportData() {
+  const data = {
+    exercises: read<Exercise[]>(KEYS.exercises, []),
+    sets: read<SetLog[]>(KEYS.sets, []),
+    settings: read<AppSettings>(KEYS.settings, DEFAULT_SETTINGS),
+    exportedAt: new Date().toISOString(),
+    version: "1.0",
+  };
+  
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `onerep-data-${new Date().toISOString().split("T")[0]}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 export function uid() {
   return Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
 }

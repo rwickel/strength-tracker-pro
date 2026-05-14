@@ -1,9 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useSettings, saveSettings } from "@/lib/store";
+import { createFileRoute } from '@tanstack/react-router'
+import { useSettings, saveSettings, exportData } from "@/lib/store";
 import { FORMULAS } from "@/lib/oneRm";
 import type { FormulaId } from "@/lib/types";
 import { Label } from "@/components/ui/label";
 import { FormulaChart } from "@/components/FormulaChart";
+import { Download, Database } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/settings")({
   head: () => ({
@@ -52,13 +54,13 @@ function SettingsPage() {
 
         <div className="rounded-2xl border border-border bg-gradient-surface p-6 shadow-card mt-4">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-semibold">Formula Curve</h3>
-            <span className="text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary">
+            <h3 className="text-sm font-semibold text-primary">Formula Curve</h3>
+            <span className="text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
               {settings.formula} model
             </span>
           </div>
           <FormulaChart formula={settings.formula} />
-          <p className="text-[10px] text-muted-foreground mt-4 text-center italic">
+          <p className="text-[10px] text-muted-foreground mt-4 text-center italic opacity-70">
             Shows what percentage of your 1RM you can likely lift for a given number of repetitions.
           </p>
         </div>
@@ -79,9 +81,27 @@ function SettingsPage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-border bg-card/50 p-4 text-sm text-muted-foreground">
-        <p className="font-medium text-foreground">Storage</p>
-        <p className="mt-1">All data is saved locally in your browser.</p>
+      <section className="rounded-2xl border border-border bg-card/50 p-6 shadow-sm overflow-hidden relative">
+        <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <Database className="h-4 w-4 text-primary" />
+              <h3 className="font-semibold text-foreground">Data & Backup</h3>
+            </div>
+            <p className="text-xs text-muted-foreground max-w-sm">
+              Your workout data is stored locally. Export it to JSON for safe-keeping or to move your progress to another device.
+            </p>
+          </div>
+          <Button 
+            onClick={exportData}
+            variant="outline"
+            className="border-primary/50 hover:bg-primary/10 hover:text-primary transition-all group"
+          >
+            <Download className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+            Download Data
+          </Button>
+        </div>
+        <div className="absolute top-0 right-0 -mr-8 -mt-8 h-32 w-32 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
       </section>
     </div>
   );
