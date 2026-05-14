@@ -1,4 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import { useSettings, saveSettings } from "@/lib/store";
+import { FORMULAS } from "@/lib/oneRm";
+import type { FormulaId } from "@/lib/types";
+import { Label } from "@/components/ui/label";
 import { FormulaChart } from "@/components/FormulaChart";
 
 export const Route = createFileRoute("/settings")({
